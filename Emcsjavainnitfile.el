@@ -67,13 +67,42 @@
 (setq ido-enable-flex-matching t)
 
 ;; Windows-specific
-(setenv "JAVA_HOME" "C:\\Program Files\\OpenJDK\\jdk-23.0.2")
+(setenv "JAVA_HOME" "C:\\Program Files\\Java\\jdk-17")
 (setenv "PATH" (concat (getenv "JAVA_HOME") "\\bin;" (getenv "PATH")))
 
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-window-width 40)
+
+
+;;use of centaur tabs
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
+
+;;install all the icons font 
+(use-package all-the-icons
+  :ensure t)
+
+(setq centaur-tabs-style "wave")
+(setq centaur-tabs-height 32)
+(setq centaur-tabs-set-icons t)
+(setq centaur-tabs-icon-type 'all-the-icons)  ; or 'nerd-icons
+(setq centaur-tabs-set-bar 'under)
+;; Note: If you're not using Spacmeacs, in order for the underline to display
+;; correctly you must add the following line:
+(setq x-underline-at-descent-line t)
+(setq centaur-tabs-set-close-button "X")
+(setq centaur-tabs-set-modified-marker t)
+
+
+(tool-bar-mode -1)    ;; Hide the toolbar
+(menu-bar-mode -1)    ;; Hide the menu bar
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
